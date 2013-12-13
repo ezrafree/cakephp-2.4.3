@@ -30,4 +30,24 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+
+	public $components = array(
+		'Session',
+		'Auth' => array(
+			'loginRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
+			'logoutRedirect' => array('controller' => 'pages', 'action' => 'display', 'home'),
+			'authError' => 'You must be signed in to view this page.'
+		)
+	);
+
+	public function beforeFilter() {
+		// allow the login page to be viewed without auth required
+		$this->Auth->allow('login', 'logout');
+
+		// set the user id into a variable
+		if($this->Auth->user('id')) {
+			$this->set("userid", $this->Auth->user('id'));
+		}
+	}
+
 }

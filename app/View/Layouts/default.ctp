@@ -39,7 +39,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link("CakePHP", '/'); ?> | <?php echo $this->Html->link("Posts", '/posts'); ?></h1>
+			<h1><?php echo $this->Html->link("CakePHP", '/'); ?> | <?php echo $this->Html->link("Posts", '/posts'); ?> | <?php echo $this->Html->link("RSS", '/posts/index.rss'); ?></h1>
 		</div>
 		<div id="content">
 
